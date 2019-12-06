@@ -1,0 +1,8 @@
+## Ignore Mac OS Stuff
+.DS_Store
+
+##### C #####
+# Object files
+*.o
+# Debug files
+*.dSYM/
