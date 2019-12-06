@@ -1,6 +1,7 @@
 // Written by wickwickthedog, December 2019
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h> 
 #include "assert.h"
 #include "SinglyLinkedList.h"
 
@@ -20,7 +21,7 @@ struct singlyLinkedListRep {
 
 // creates a new empty singly linked list
 SinglyLinkedList newSinglyLinkedList(char *name) {
-	SinglyLinkedList l = malloc(sizeof(SinglyLinkedList));
+	SinglyLinkedList l = malloc(sizeof(struct singlyLinkedListRep));
 	assert(l != NULL);
 	l -> name = name;
 	l -> size = 0;
@@ -42,7 +43,7 @@ void displaySinglyLinkedList(SinglyLinkedList SL) {
 		printf("[%d] ~~> ", curr -> data);
 		curr = curr -> next;
 	}
-	printf(" NULL {Size of List: %d}\n", SL -> size);
+	printf(" NULL {Size of %s: %d}\n", SL -> name, SL -> size);
 }
 
 static Elem *newElem(int data) {
@@ -53,8 +54,24 @@ static Elem *newElem(int data) {
 	return new;
 }
 
+static bool contains(SinglyLinkedList SL, int data) {
+	Elem *curr = SL -> head;
+	while (curr != NULL) {
+		if (curr -> data == data) {
+			return true;
+		};
+		curr = curr -> next;
+	}
+	return false;
+}
+
 void appendToSinglyLinkedList(SinglyLinkedList SL, int data) {
 	assert(SL != NULL);
+	if (contains(SL, data)) {
+		printf("%s already contains %d\n", SL -> name, data);
+		return;	
+	}
+
 	Elem *elem = newElem(data);
 	if (SL -> size == 0) SL -> head = SL -> tail = elem;
 	else if (SL -> size == 1) {
@@ -71,19 +88,22 @@ void appendToSinglyLinkedList(SinglyLinkedList SL, int data) {
 
 void freeSinglyLinkedList(SinglyLinkedList SL) {
 	assert(SL != NULL);
+	char *name = SL -> name;
+
 	if (SL -> size == 0) {
 		free(SL);
+		printf("Freed %s\n", name);
 		return;
 	};
 
 	Elem *curr = SL -> head;
 	while (curr != NULL) {
 		Elem *temp = curr;
-		free(temp);
 		curr = curr -> next;
+		free(temp);
 	}
 	free(SL);
-	printf("Freed %s\n", SL -> name);
+	printf("Freed %s\n", name);
 }
 
 void removeFromSinglyLinkedList(SinglyLinkedList SL, int data) {
@@ -91,7 +111,6 @@ void removeFromSinglyLinkedList(SinglyLinkedList SL, int data) {
 	Elem *curr = SL -> head;
 	if (curr == SL -> head && curr -> data == data) {
 		Elem *temp = curr;
-		SL -> head -> next = curr -> next -> next;
 		SL -> head = curr -> next;
 		SL -> size --;
 		free(temp);
@@ -109,9 +128,9 @@ void removeFromSinglyLinkedList(SinglyLinkedList SL, int data) {
 			printf("Removed %d from %s\n", data, SL -> name);
 			return;
 		};
-		if (curr -> data == data) {
-			Elem *temp = curr;
-			curr -> next = temp -> next;
+		if (curr -> next != NULL && curr -> next -> data == data) {
+			Elem *temp = curr -> next;
+			curr -> next = curr -> next -> next;
 			SL -> size --;
 			free(temp);
 			printf("Removed %d from %s\n", data, SL -> name);
