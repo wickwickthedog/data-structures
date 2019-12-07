@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 int main() {
-	char *name = "List 1";
+	char *name = "DEMO LIST";
 	// printf("%s\n", name);
 	SinglyLinkedList l = newSinglyLinkedList(name);
 	displaySinglyLinkedList(l);
@@ -31,6 +31,7 @@ int main() {
 	displaySinglyLinkedList(l);
 	appendToSinglyLinkedList(l, 4);
 	displaySinglyLinkedList(l);
+	printf("\n");
 
 	removeFromSinglyLinkedList(l,3);
 	displaySinglyLinkedList(l);
@@ -38,6 +39,17 @@ int main() {
 	displaySinglyLinkedList(l);
 	removeFromSinglyLinkedList(l,2);
 	displaySinglyLinkedList(l);
+	removeFromSinglyLinkedList(l,2);
+	displaySinglyLinkedList(l);
+	printf("\n");
+
+	appendToSinglyLinkedList(l, 1);
+	displaySinglyLinkedList(l);
+	appendToSinglyLinkedList(l, 2);
+	displaySinglyLinkedList(l);
+	appendToSinglyLinkedList(l, 3);
+	displaySinglyLinkedList(l);
+	printf("\n");
 
 	freeSinglyLinkedList(l);
 	displaySinglyLinkedList(l);

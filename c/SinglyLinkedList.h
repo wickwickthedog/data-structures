@@ -4,19 +4,48 @@
 
 typedef struct singlyLinkedListRep *SinglyLinkedList;
 
-// creates a new empty singly linked list
-SinglyLinkedList newSinglyLinkedList();
+/** 
+ * creates an empty singly linked list
+ *
+ * @param name of the list
+ * @return ptr to an empty singly linked list
+ */
+SinglyLinkedList newSinglyLinkedList(char *);
 
-// display list
+/** 
+ * prints all elem in singly linked list
+ * Time Complexity : O(n) 
+ *
+ * @param list
+ */
 void displaySinglyLinkedList(SinglyLinkedList);
 
-// append elem
+/** 
+ * append new elem into singly linked list 
+ * (insert to the end of the list if not in list)
+ * Time Complexity : O(n) 
+ *
+ * @param list
+ * @param data
+ */
 void appendToSinglyLinkedList(SinglyLinkedList, int);
 
-// free singly linked list
+/** 
+ * free memory for all elem and singly linked list 
+ * Time Complexity : O(n) 
+ *
+ * @param list
+ */
 void freeSinglyLinkedList(SinglyLinkedList);
 
-// remove elem
+/** 
+ * remove elem from singly linked list 
+ * (remove elem if in list)
+ * Time Complexity : O(n) 
+ *
+ * @param list
+ * @param data
+ */
 void removeFromSinglyLinkedList(SinglyLinkedList, int);
 
 #endif
