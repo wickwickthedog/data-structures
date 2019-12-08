@@ -9,18 +9,21 @@
 int main() {
 	char *name = "DEMO LIST";
 	// printf("%s\n", name);
+	printf("----- START -----\n");
 	SinglyLinkedList l = newSinglyLinkedList(name);
 	displaySinglyLinkedList(l);
 	printf("\n");	
 
+	printf("----- TEST INSERT -----\n");
 	appendToSinglyLinkedList(l, 1);
 	displaySinglyLinkedList(l);
 	appendToSinglyLinkedList(l, 2);
 	displaySinglyLinkedList(l);
 	appendToSinglyLinkedList(l, 3);
 	displaySinglyLinkedList(l);
-	printf("\n");
+	printf("----- TEST INSERT DONE-----\n\n");
 
+	printf("----- TEST REMOVE -----\n");
 	removeFromSinglyLinkedList(l,4);
 	displaySinglyLinkedList(l);
 	removeFromSinglyLinkedList(l,1);
@@ -50,10 +53,11 @@ int main() {
 	appendToSinglyLinkedList(l, 3);
 	displaySinglyLinkedList(l);
 	printf("\n");
+	printf("----- TEST REMOVE DONE -----\n\n");
 
 	freeSinglyLinkedList(l);
-	displaySinglyLinkedList(l);
-	printf("\n");
+	// displaySinglyLinkedList(l);
+	printf("----- END -----\n");
 
 	return EXIT_SUCCESS;
 }
