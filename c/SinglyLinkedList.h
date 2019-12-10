@@ -10,7 +10,7 @@ typedef struct singlyLinkedListRep *SinglyLinkedList;
  * @param name of the list
  * @return ptr to an empty singly linked list
  */
-SinglyLinkedList newSinglyLinkedList(char *);
+SinglyLinkedList newSinglyLinkedList(char *name);
 
 /** 
  * prints all elem in singly linked list
@@ -18,7 +18,7 @@ SinglyLinkedList newSinglyLinkedList(char *);
  *
  * @param list
  */
-void displaySinglyLinkedList(SinglyLinkedList);
+void displaySinglyLinkedList(SinglyLinkedList SL);
 
 /** 
  * append new elem into singly linked list 
@@ -28,7 +28,7 @@ void displaySinglyLinkedList(SinglyLinkedList);
  * @param list
  * @param data
  */
-void appendToSinglyLinkedList(SinglyLinkedList, int);
+void appendToSinglyLinkedList(SinglyLinkedList SL, int data);
 
 /** 
  * free memory for all elem and singly linked list 
@@ -36,7 +36,7 @@ void appendToSinglyLinkedList(SinglyLinkedList, int);
  *
  * @param list
  */
-void freeSinglyLinkedList(SinglyLinkedList);
+void freeSinglyLinkedList(SinglyLinkedList SL);
 
 /** 
  * remove elem from singly linked list 
@@ -46,6 +46,6 @@ void freeSinglyLinkedList(SinglyLinkedList);
  * @param list
  * @param data
  */
-void removeFromSinglyLinkedList(SinglyLinkedList, int);
+void removeFromSinglyLinkedList(SinglyLinkedList SL, int data);
 
 #endif
