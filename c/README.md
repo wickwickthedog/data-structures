@@ -52,3 +52,14 @@ Space <sub>complexity</sub>: O(n)
 **Deletion:** Time <sub>complexity</sub>: O(1)
 
 Space <sub>complexity</sub>: O(n)
+
+## Adjacency List Graph
+**Access:** Time <sub>complexity</sub>: O(|V| + |E|)
+
+**Search:** Time <sub>complexity</sub>: O(|V| + |E|)
+
+**Insertion:** Time <sub>complexity</sub>: not O(|V|) but O(|V| + |E|) since i didn't keep track of last elem in list
+
+**Deletion:** Time <sub>complexity</sub>: not O(|V|) but O(|V| + |E|) because delete specific elem in list
+
+Space <sub>complexity</sub>: O(|V| + |E|)

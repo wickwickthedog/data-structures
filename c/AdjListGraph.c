@@ -49,7 +49,7 @@ Graph newGraph(char *name, int numOfNodes) {
 
 /**
  * prints all nodes in graph
- * Time Complexity : O(n)
+ * Time Complexity : O(|V| + |E|)
  * 
  * @param graph
  */ 
@@ -74,7 +74,7 @@ void  showGraph(Graph g) {
 
 /** 
  * creates an edge between source and destination
- * Time Complexity: TODO
+ * Time Complexity: not O(|V|) but O(|V| + |E|) since i didn't keep track of last elem in list
  *
  * @param graph
  * @param soucre vertex/ node
@@ -110,7 +110,7 @@ void insertEdge(Graph g, Vertex src, Vertex dest, int weight) {
 
 /** 
  * removes the edge between source and destination
- * Time Complexity: not O(1) but O(n) since check duplicates
+ * Time Complexity: not O(|V|) but O(|V| + |E|) because delete specific elem in list
  *
  * @param graph
  * @param soucre vertex/ node
@@ -145,7 +145,7 @@ void  removeEdge(Graph g, Vertex src, Vertex dest) {
 
 /** 
  * free memory for all edges and nodes
- * Time Complexity : O(n) 
+ * Time Complexity : O(|V| + |E|) 
  *
  * @param graph
  */
@@ -185,7 +185,7 @@ static AdjList insertNode(Vertex v, int weight) {
  * Helper function - 
  * check is source and destination is adjacent
  * (updates weight if link already exist)
- * Time Complexity: O(n)
+ * Time Complexity: O(|V| + |E|)
  *
  * @param graph
  * @param source vertex/ node
@@ -208,7 +208,7 @@ static bool isAdjacent(AdjList edges, Vertex dest) { //, int weight) {
  * Helper function - 
  * list of adjacent vertices
  * on outgoing edges from a given vertex.
- * Time Complexity: O(n)
+ * Time Complexity: O(|E|)
  *
  * @param source edges
  */
@@ -223,7 +223,7 @@ static void outIncident(AdjList edges) {
  * Helper function - 
  * list of adjacent vertices
  * on incoming edges from a given vertex.
- * Time Complexity: O(n)
+ * Time Complexity: O(|V| + |E|)
  *
  * @param graph
  * @param given vertex/ node
