@@ -10,7 +10,7 @@ typedef struct doublyLinkedListRep *DoublyLinkedList;
  * @param name of the list
  * @return ptr to an empty Doubly linked list
  */
-DoublyLinkedList newDoublyLinkedList(char *);
+DoublyLinkedList newDoublyLinkedList(char *name);
 
 /** 
  * prints all elem in Doubly linked list
@@ -18,7 +18,7 @@ DoublyLinkedList newDoublyLinkedList(char *);
  *
  * @param list
  */
-void displayDoublyLinkedList(DoublyLinkedList);
+void displayDoublyLinkedList(DoublyLinkedList DL);
 
 /** 
  * prints all elem in Doubly linked list (reverse)
@@ -26,7 +26,7 @@ void displayDoublyLinkedList(DoublyLinkedList);
  *
  * @param list
  */
-void displayReversedDoublyLinkedList(DoublyLinkedList);
+void displayReversedDoublyLinkedList(DoublyLinkedList DL);
 
 /** 
  * insert new elem before current node into Doubly linked list 
@@ -35,7 +35,7 @@ void displayReversedDoublyLinkedList(DoublyLinkedList);
  * @param list
  * @param data
  */
-void insertBeforeToDoublyLinkedList(DoublyLinkedList, char *);
+void insertBeforeToDoublyLinkedList(DoublyLinkedList DL, char *data);
 
 /** 
  * insert new elem after current node into Doubly linked list 
@@ -44,7 +44,7 @@ void insertBeforeToDoublyLinkedList(DoublyLinkedList, char *);
  * @param list
  * @param data
  */
-void insertAfterToDoublyLinkedList(DoublyLinkedList, char *);
+void insertAfterToDoublyLinkedList(DoublyLinkedList DL, char *data);
 
 /** 
  * free memory for all elem and Doubly linked list 
@@ -52,7 +52,7 @@ void insertAfterToDoublyLinkedList(DoublyLinkedList, char *);
  *
  * @param list
  */
-void freeDoublyLinkedList(DoublyLinkedList);
+void freeDoublyLinkedList(DoublyLinkedList DL);
 
 /** 
  * remove elem from Doubly linked list 
@@ -62,7 +62,7 @@ void freeDoublyLinkedList(DoublyLinkedList);
  * @param list
  * @param data
  */
-void removeFromDoublyLinkedList(DoublyLinkedList);
+void removeFromDoublyLinkedList(DoublyLinkedList DL);
 
 /**
  * move current ptr position
@@ -72,6 +72,6 @@ void removeFromDoublyLinkedList(DoublyLinkedList);
  * @param list
  * @param shift
  */
-int moveCurrentPtr(DoublyLinkedList, int);
+int moveCurrentPtr(DoublyLinkedList DL, int shift);
 
 #endif
